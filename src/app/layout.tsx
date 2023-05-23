@@ -1,15 +1,10 @@
 import { Metadata } from 'next';
 import './globals.css';
-import { Roboto } from 'next/font/google';
-
-const roboto = Roboto({
-  weight: ['100', '300', '400', '500', '700'],
-  subsets: ['latin'],
-});
+import { strings } from '@/resources/strings';
 
 export const metadata: Metadata = {
-  title: 'Home',
-  description: 'Welcome to Next.js',
+  title: strings.home_page_title,
+  description: strings.home_page_description,
 };
 
 export default function RootLayout({
@@ -19,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={roboto.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

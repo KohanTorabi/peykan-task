@@ -8,8 +8,11 @@ export default function Filters({
   onFiltersChange,
   services,
 }: FiltersProps) {
-  const changeFilter = (key: keyof Filter, value: string) => {
-    onFiltersChange({ ...currentFilter, [key]: value });
+  const changeFilter = (key: keyof Filter, value?: string) => {
+    onFiltersChange({
+      ...currentFilter,
+      [key]: key === 'name' ? value : value || 'all',
+    });
   };
   return (
     <Grid container rowSpacing={4} marginTop={2}>
@@ -21,6 +24,7 @@ export default function Filters({
           fullWidth
           value={currentFilter.name}
           onChange={(e) => changeFilter('name', e.target.value)}
+          size="small"
         />
       </Grid>
       <Grid container item spacing={3}>
@@ -34,35 +38,50 @@ export default function Filters({
               'impossible-label',
             ]}
             renderInput={(params) => (
-              <TextField {...params} label={strings.service_status} />
+              <TextField
+                {...params}
+                label={strings.service_status}
+                size="small"
+              />
             )}
             getOptionLabel={(v) => strings[v as keyof typeof strings]}
             value={currentFilter.keytype}
-            onChange={(_e, v) => (v ? changeFilter('keytype', v) : {})}
+            onChange={(_e, v) => changeFilter('keytype', v || undefined)}
+            size="small"
           />
         </Grid>
         <Grid item xs={12} lg={4}>
           <Autocomplete
             options={getServiceData(services, 'category')}
             renderInput={(params) => (
-              <TextField {...params} label={strings.service_category} />
+              <TextField
+                {...params}
+                label={strings.service_category}
+                size="small"
+              />
             )}
             getOptionLabel={(v) => strings[v as keyof typeof strings]}
             value={currentFilter.category}
-            onChange={(_e, v) => (v ? changeFilter('category', v) : {})}
+            onChange={(_e, v) => changeFilter('category', v || undefined)}
+            size="small"
           />
         </Grid>
         <Grid item xs={12} lg={4}>
           <Autocomplete
             options={['all', '1', '2', '3']}
             renderInput={(params) => (
-              <TextField {...params} label={strings.service_priority} />
+              <TextField
+                {...params}
+                label={strings.service_priority}
+                size="small"
+              />
             )}
             getOptionLabel={(v) =>
               strings[`priority_${v}` as keyof typeof strings]
             }
             value={currentFilter.priority}
-            onChange={(_e, v) => (v ? changeFilter('priority', v) : {})}
+            onChange={(_e, v) => changeFilter('priority', v || undefined)}
+            size="small"
           />
         </Grid>
       </Grid>
