@@ -9,12 +9,13 @@ import RTL from '../rtl';
 import { strings } from '@/resources/strings';
 import { useState } from 'react';
 import { Filter } from '../filters/types';
+import { Service } from '@/types';
 
-const CustomizedMenuIcon = styled(MenuIcon)`
+const TitleIcon = styled(MenuIcon)`
   margin-right: 10px;
 `;
 
-export default function Home() {
+export default function Home({ services }: { services: Service[] }) {
   const [filter, setFilter] = useState<Filter>({
     name: undefined,
     category: 'all',
@@ -26,11 +27,15 @@ export default function Home() {
       <ThemeProvider theme={theme}>
         <Container maxWidth="lg">
           <Typography variant="h4" align="center">
-            <CustomizedMenuIcon />
+            <TitleIcon />
             {strings.title}
           </Typography>
           <div>
-            <Filters currentFilter={filter} onFiltersChange={setFilter} />
+            <Filters
+              currentFilter={filter}
+              onFiltersChange={setFilter}
+              services={services}
+            />
           </div>
         </Container>
       </ThemeProvider>

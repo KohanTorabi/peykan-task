@@ -1,9 +1,8 @@
-'use client';
-
+import { fetchServicesData } from '@/api/fetchServicesData';
 import Home from '@/components/home';
-import styles from './page.module.css';
-import { Container, Grid } from '@mui/material';
 
-export default function HomePage() {
-  return <Home />;
+export default async function HomePage() {
+  const data = await fetchServicesData();
+
+  return <Home services={data} />;
 }
