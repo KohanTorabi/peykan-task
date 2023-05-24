@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { memo, useMemo } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
@@ -10,6 +10,7 @@ import { strings } from '@/resources/strings';
 import { getServiceStatusTagColor } from './utils';
 import styled from '@emotion/styled';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
+import { GitHubUrl } from '@/constants/urls';
 
 const CustomizedCard = styled(Card)`
   min-height: 248px;
@@ -47,17 +48,20 @@ const InfoContainer = styled.div`
   margin-top: 0.5em;
 `;
 
-export default React.memo(function ServiceCard({ data }: ServiceCardProps) {
+export default memo(function ServiceCard({ data }: ServiceCardProps) {
   const { name, deleteurl, keytype, website, info, difficulty } = data || {};
 
-  const CustomizedChip = styled(Chip)`
-    background: ${getServiceStatusTagColor(keytype)};
-    color: white;
-    border-radius: 0.25rem;
-    font-size: 13px;
-    min-width: 71px;
-    margin-right: 10px;
-  `;
+  const CustomizedChip = useMemo(
+    () => styled(Chip)`
+      background: ${getServiceStatusTagColor(keytype)};
+      color: white;
+      border-radius: 0.25rem;
+      font-size: 13px;
+      min-width: 71px;
+      margin-right: 10px;
+    `,
+    [keytype],
+  );
   return (
     <CustomizedCard variant="outlined">
       <CardContent>
@@ -73,7 +77,7 @@ export default React.memo(function ServiceCard({ data }: ServiceCardProps) {
             {name}
           </Link>
           <Link
-            href="https://github.com/rtbf-ir/rtbf.ir/issues/new/choose"
+            href={GitHubUrl}
             target="_blank"
             fontSize="12px"
             fontWeight={500}

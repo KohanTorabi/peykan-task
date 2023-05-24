@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import { ServiceCardsProps } from './types';
 import ServiceCard from './card';

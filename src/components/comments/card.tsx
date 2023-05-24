@@ -9,21 +9,25 @@ const CommentCardContainer = styled(Paper)`
   width: 100%;
 `;
 
-const CommentCard: React.FC<{ comment: Comment }> = ({ comment }) => {
-  const { text, author } = comment;
-  return (
-    <CommentCardContainer>
-      <Grid container wrap="nowrap" spacing={2}>
-        <Grid item>
-          <Avatar alt={author}>{author.charAt(0)}</Avatar>
+const CommentCard: React.FC<{ comment: Comment }> = React.memo(
+  function CommentCard({ comment }) {
+    const { text, author } = comment;
+    return (
+      <CommentCardContainer>
+        <Grid container wrap="nowrap" spacing={2}>
+          <Grid item>
+            <Avatar alt={author}>{author.charAt(0)}</Avatar>
+          </Grid>
+          <Grid justifyContent="left" item xs zeroMinWidth>
+            <Typography gutterBottom fontWeight={600}>
+              {author}
+            </Typography>
+            <Typography>{text}</Typography>
+          </Grid>
         </Grid>
-        <Grid justifyContent="left" item xs zeroMinWidth>
-          <Typography gutterBottom fontWeight={600}>{author}</Typography>
-          <Typography>{text}</Typography>
-        </Grid>
-      </Grid>
-    </CommentCardContainer>
-  );
-};
+      </CommentCardContainer>
+    );
+  },
+);
 
 export default CommentCard;

@@ -1,6 +1,13 @@
 import { Service } from '@/types';
 import { Filter } from '../filters/types';
 
+/**
+ * Filters an array of services based on the provided filter criteria.
+ *
+ * @param {Service[]} services - The array of services to be filtered.
+ * @param {Filter} filter - The filter criteria to be applied.
+ * @returns {Service[]} - An array of services that match the filter criteria.
+ */
 export function filterServices(services: Service[], filter: Filter): Service[] {
   return (
     services?.filter((s) => {

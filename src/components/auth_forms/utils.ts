@@ -1,9 +1,15 @@
 import { strings } from '@/resources/strings';
 import { SignUpFormData, rawSignUpFormData } from './types';
 
+/**
+ * Validates the form data for sign up.
+ *
+ * @param {SignUpFormData} data - The sign up form data to be validated.
+ * @returns {SignUpFormData} errors - The object containing any validation errors.
+ */
 export const validateForm = (data: SignUpFormData) => {
   const { username, email, password } = data;
-  const errors: SignUpFormData = rawSignUpFormData;
+  const errors: SignUpFormData = { ...rawSignUpFormData };
 
   // Validate username
   if (!username) {

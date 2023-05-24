@@ -1,7 +1,8 @@
+import { GetServicesUrl } from '@/constants/urls';
 import { Service } from '@/types';
 
 export async function fetchServicesData() {
-  const res = await fetch('https://rtbf.ir/data/data.json', {
+  const res = await fetch(GetServicesUrl, {
     next: {
       revalidate: 60 * 30, // seconds
     },
