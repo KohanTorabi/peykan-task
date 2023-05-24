@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Peykan Technical Test
 
-## Getting Started
+This project is a front-end implementation of the www.rtbf.ir/directory website using MUI (Material-UI) and Next.js. The goal of this task is to display previews of services and include a commenting section where users can share their experiences with those services. The project includes user sign-up functionality, where users must provide a username, email, and password that meets specific criteria.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Implementation of www.rtbf.ir/directory website using MUI and Next.js
+- Display of service previews
+- User sign-up functionality
+- Commenting section for users to share their experiences
+- Password validation with specific criteria (minimum eight characters, at least one special character, and at least one capital letter)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   
+   `git clone https://github.com/KohanTorabi/peykan-task.git`
+2. Install the dependencies:
+   
+   `npm install`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Usage
 
-## Learn More
+1.  Start the development server:
 
-To learn more about Next.js, take a look at the following resources:
+    `npm run dev`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2.  Open your browser and visit [http://localhost:3000](http://localhost:3000/) to view the application.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+- Next.js
+- Material-UI (MUI)
+- Emotion
+- Typescript
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Contributions to this project are welcome! If you have any suggestions, improvements, or bug fixes, feel free to open a pull request.
+
+## License
+
+This project is licensed under the MIT License.
