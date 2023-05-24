@@ -5,22 +5,33 @@ import Container from '@mui/material/Container';
 import { strings } from '@/resources/strings';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import { GitHubUrl, TwitterUrl } from '@/constants/urls';
+import { BannerImgUrl, GitHubUrl, TwitterUrl } from '@/constants/urls';
 
 const BannerContainer = styled.div`
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: end;
   height: 340px;
   margin-bottom: 40px;
   img {
     object-fit: cover;
+    object-position: -631px;
+  }
+
+  @media (min-width: 768px) {
+    align-items: center;
+  }
+  @media (min-width: 630px) {
+    img {
+      object-position: unset;
+    }
   }
 `;
 
 const ContentContainer = styled(Container)`
   display: flex;
   justify-content: end;
+  margin-bottom: 20px;
 `;
 
 const GithubLink = styled(Button)`
@@ -37,8 +48,8 @@ const TwitterIconLink = styled(Button)`
 export default function HomeBanner() {
   return (
     <BannerContainer>
-      <Image src="https://rtbf.ir/assets/img/header.png" fill alt="banner" />
-      <ContentContainer>
+      <Image src={BannerImgUrl} fill alt="banner" />
+      <ContentContainer maxWidth="xl">
         <GithubLink
           href={GitHubUrl}
           title={strings.participate_hint}

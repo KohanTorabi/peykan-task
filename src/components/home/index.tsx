@@ -31,7 +31,7 @@ export default function Home({ services }: { services: Service[] }) {
     <RTL>
       <ThemeProvider theme={theme}>
         <HomeBanner />
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <HomeTitle />
           <Filters
             currentFilter={filter}
