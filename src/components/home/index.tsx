@@ -13,6 +13,7 @@ import ServiceCards from '../cards';
 import { useMemo } from 'react';
 import { filterServices } from './utils';
 import HomeBanner from '../banner';
+import HomeComments from '../comments';
 
 export default function Home({ services }: { services: Service[] }) {
   const [filter, setFilter] = useState<Filter>({
@@ -38,6 +39,7 @@ export default function Home({ services }: { services: Service[] }) {
             services={services}
           />
           <ServiceCards services={filteredServices} />
+          <HomeComments />
         </Container>
       </ThemeProvider>
     </RTL>
